@@ -18,10 +18,13 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get('/', 'ArticleController@index');
 Route::post('/login', "UserController@login");
 Route::post('/register', "UserController@register");
-Route::get('/', 'ArticleController@index');
-Route::post('/article/delete/{id}', 'ArticleController@destroy');
-Route::post('/article/create', 'ArticleController@create');
-Route::get('/article/edit/{id}', 'ArticleController@edit');
-Route::post('/article/update/{id}', 'ArticleController@update');
+
+Route::group(['middleware' => ['jwt.verify']], function () {
+    Route::post('/article/delete', 'ArticleController@destroy');
+    Route::post('/article/create', 'ArticleController@create');
+    Route::get('/article/edit/{id}', 'ArticleController@edit');
+    Route::post('/article/update/{id}', 'ArticleController@update');
+});
