@@ -53,9 +53,9 @@ class ArticleController extends Controller
         }
     }
 
-    public function delete()
+    public function destroy($id)
     {
-        $article = Article::find(request()->id);
+        $article = Article::find($id);
         if ($article->delete()) {
             return response()->json(['message' => 'Deleted article'], 200);
         }
@@ -111,12 +111,5 @@ class ArticleController extends Controller
         $path = '/img/blog' . "/$name";
         $message = '';
         return response()->json(["uploaded" => 1, "fileName" => $name, "url" => $path]);
-    }
-
-    public function FunctionName()
-    {
-        $article = Article::find(request()->id);
-        $article->delete();
-        return response()->json('Article deleted successfully!', 200);
     }
 }
