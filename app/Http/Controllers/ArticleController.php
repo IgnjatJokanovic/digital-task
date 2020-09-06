@@ -87,7 +87,7 @@ class ArticleController extends Controller
             return response()->json(["messages" => $errors], 422);
         } else {
             $article = Article::find($id);
-            if (!$article->isEmpty()) {
+            if ($article != null) {
                 $article->title = request()->title;
                 $article->body = request()->body;
                 if (request()->has('img')) {
@@ -97,6 +97,8 @@ class ArticleController extends Controller
                     \File::put(public_path() . "/img/$name", $file);
                     $article->img = url('/img') . "/$name";
                 }
+                $article->update();
+                return response()->json("Updated", 201);
             } else {
                 return response()->json("Article not found", 404);
             }

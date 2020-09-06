@@ -1,0 +1,14 @@
+.article-holder {
+  position: relative;
+}
+
+.article-holder--actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+

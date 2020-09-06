@@ -6,6 +6,10 @@ import Vuex from "vuex";
 import store from "./store";
 import { routes } from "./router";
 import MainApp from "./components/MainApp.vue";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 Vue.use(VueRouter);
 
