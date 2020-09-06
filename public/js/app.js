@@ -2300,6 +2300,13 @@ vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(__webpack_require__(/*! vue-momen
       };
 
       reader.readAsDataURL(img);
+    },
+    trim: function trim(body) {
+      if (body.length > 150) {
+        return body.substr(0, 150 - 1) + "...";
+      } else {
+        return body;
+      }
     }
   }
 });
@@ -67695,7 +67702,7 @@ var render = function() {
                   _c("p", { staticClass: "card-text mt-2" }, [
                     _vm._v(
                       "\n                        " +
-                        _vm._s(post.body.substr(0, 150 - 1) + "...") +
+                        _vm._s(_vm.trim(post.body)) +
                         "\n                    "
                     )
                   ])

@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <p class="card-text mt-2">
-                            {{ post.body.substr(0, 150 - 1) + "..." }}
+                            {{ trim(post.body) }}
                         </p>
                     </div>
                     <div class="article-holder--actions">
@@ -188,6 +188,13 @@ export default {
                 this.post.img = e.target.result;
             };
             reader.readAsDataURL(img);
+        },
+        trim(body) {
+            if (body.length > 150) {
+                return body.substr(0, 150 - 1) + "...";
+            } else {
+                return body;
+            }
         }
     }
 };
