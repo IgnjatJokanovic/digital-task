@@ -42,7 +42,7 @@ class ArticleController extends Controller
                 $file = base64_decode(substr($img, strpos($img, ",") + 1));
                 $name = time() . ".png";
                 \File::put(public_path() . "/img/$name", $file);
-                $article->img = url('/img') . "/$name";
+                $article->img = "/img/$name";
             }
             $article->title = request()->title;
             $article->body = request()->body;
@@ -95,7 +95,7 @@ class ArticleController extends Controller
                     $file = base64_decode(substr($img, strpos($img, ",") + 1));
                     $name = time() . ".png";
                     \File::put(public_path() . "/img/$name", $file);
-                    $article->img = url('/img') . "/$name";
+                    $article->img = "/img/$name";
                 }
                 $article->update();
                 return response()->json("Updated", 201);

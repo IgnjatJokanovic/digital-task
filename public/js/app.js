@@ -2275,10 +2275,9 @@ vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(__webpack_require__(/*! vue-momen
           }
         };
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/article/update/".concat(this.post.id), this.post, config).then(function (res) {
-          alert("Update suceess");
-          setTimeout(function () {
-            window.location;
-          }, 2500);
+          alert("Update suceess"); // setTimeout(() => {
+          //     window.location;
+          // }, 2500);
         })["catch"](function (err) {
           return console.log(err);
         });

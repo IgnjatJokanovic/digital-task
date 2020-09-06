@@ -169,9 +169,9 @@ export default {
                     )
                     .then(res => {
                         alert("Update suceess");
-                        setTimeout(() => {
-                            window.location;
-                        }, 2500);
+                        // setTimeout(() => {
+                        //     window.location;
+                        // }, 2500);
                     })
                     .catch(err => console.log(err));
             } else {
